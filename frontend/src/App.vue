@@ -1,85 +1,79 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
-</script>
-
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <div class="app-container">
+    <header class="header">
+      <h1>Mon Blog Collaboratif</h1>
+      <p>Partagez vos idées et découvrez celles des autres</p>
+    </header>
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+    <main class="main-content">
+      <PostList />
+    </main>
 
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
-
-  <RouterView />
+    <footer class="footer">
+      <p>© 2025 Blog Collaboratif. Tous droits réservés.</p>
+    </footer>
+  </div>
 </template>
 
-<style scoped>
-header {
-  line-height: 1.5;
-  max-height: 100vh;
+<script>
+import PostList from './components/PostList.vue';
+
+export default {
+  name: 'App',
+  components: {
+    PostList,
+  },
+};
+</script>
+
+<style>
+/* Styles globaux */
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: 'Arial', sans-serif;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-image: url('/images/background.jpg');
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  color: #fff;
 }
 
-nav {
-  width: 100%;
-  font-size: 12px;
+.header {
   text-align: center;
-  margin-top: 2rem;
+  padding: 60px 20px;
+  background: rgba(0, 0, 0, 0.6); /* Fond semi-transparent */
 }
 
-nav a.router-link-exact-active {
-  color: var(--color-text);
+.header h1 {
+  font-size: 3rem;
+  margin: 0;
+  font-family: 'Georgia', serif;
 }
 
-nav a.router-link-exact-active:hover {
-  background-color: transparent;
+.header p {
+  font-size: 1.2rem;
+  margin: 10px 0 0;
 }
 
-nav a {
-  display: inline-block;
-  padding: 0 1rem;
-  border-left: 1px solid var(--color-border);
+.main-content {
+  flex: 1;
+  padding: 20px;
+  background: rgba(227, 123, 123, 0.8); /* Fond semi-transparent */
+  color: #333;
 }
 
-nav a:first-of-type {
-  border: 0;
-}
-
-@media (min-width: 1024px) {
-  header {
-    display: flex;
-    place-items: center;
-    padding-right: calc(var(--section-gap) / 2);
-  }
-
-  .logo {
-    margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
-  }
-
-  nav {
-    text-align: left;
-    margin-left: -1rem;
-    font-size: 1rem;
-
-    padding: 1rem 0;
-    margin-top: 1rem;
-  }
+.footer {
+  text-align: center;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.8); /* Fond semi-transparent */
+  color: #fff;
 }
 </style>
