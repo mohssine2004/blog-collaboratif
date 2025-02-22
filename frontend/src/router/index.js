@@ -1,6 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import HomeView from '../views/HomeView.vue';
-import CreatePostView from '../views/CreatePostView.vue'; // Ce fichier est manquant
+import CreatePostView from '../views/CreatePostView.vue';
 
 const routes = [
   {
@@ -9,9 +9,9 @@ const routes = [
     component: HomeView,
   },
   {
-    path: '/create-post',
+    path: '/create', // Ensure this matches the URL you are navigating to
     name: 'create-post',
-    component: CreatePostView, // Ce composant est manquant
+    component: CreatePostView,
   },
 ];
 
